@@ -135,6 +135,16 @@ body {
   flex: 1;
 }
 
+.questions {
+  margin-top: 2rem;
+}
+
+.questions__days {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+
 .footer {
   border-radius: 0.9rem;
   background-color: #555;
