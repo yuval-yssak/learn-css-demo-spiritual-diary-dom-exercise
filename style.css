@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Parisienne&display=swap");
+
 :root {
   --global-padding: 2rem;
 }
@@ -11,7 +13,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   display: flex;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Nunito, Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -24,6 +26,7 @@ body {
   height: calc(100vh - 2 * var(--global-padding));
   display: flex;
   flex-direction: column;
+  background-color: #fffbf2;
 }
 
 .header {
@@ -145,14 +148,15 @@ body {
 .footer .quote {
   padding: 2rem;
   text-align: center;
-  font-size: 2rem;
-  font-family: cursive;
+  font-size: 3rem;
+  font-family: Parisienne, cursive;
   position: relative;
 }
 
 .footer .quote::after {
   content: "Swami Sivananda";
   font-size: 1.2rem;
+  font-family: cursive;
   position: absolute;
   right: 3rem;
   bottom: 0.2rem;
@@ -160,7 +164,7 @@ body {
 
 @media (max-height: 31.25em) {
   html {
-    font-size: 50%;
+    font-size: 55%;
   }
 
   .app {
@@ -184,7 +188,7 @@ body {
 
   .footer .quote {
     padding: 0.4rem 0.4rem 2rem;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 }
 
