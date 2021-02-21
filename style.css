@@ -14,6 +14,7 @@ body {
   box-sizing: border-box;
   display: flex;
   font-family: Nunito, Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
 }
 
 * {
@@ -21,9 +22,10 @@ body {
 }
 
 .app {
-  margin: var(--global-padding);
+  height: 100vh;
+  width: 100vw;
+  padding: var(--global-padding);
   flex: 1;
-  height: calc(100vh - 2 * var(--global-padding));
   display: flex;
   flex-direction: column;
   background-color: #fffbf2;
@@ -44,7 +46,7 @@ body {
   flex: 1;
   text-align: center;
   align-self: center;
-  font-size: 5rem;
+  font-size: 4rem;
   padding: 0 1rem;
   color: lemonchiffon;
 }
@@ -85,9 +87,11 @@ body {
     justify-content: center;
     padding: 0.7rem;
   }
+
   .header__title {
     grid-column: 1/-1;
   }
+
   .header__image.swami-sivananda {
     justify-self: right;
   }
@@ -133,16 +137,46 @@ body {
 
 .main {
   flex: 1;
+  overflow: hidden;
+  margin: 2rem 0;
 }
 
-.questions {
-  margin-top: 2rem;
+.diary {
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) repeat(
+      7,
+      minmax(7rem, 1fr)
+    );
+  grid-gap: 1rem;
+  align-items: center;
+  align-content: start;
+  justify-items: start;
+  overflow: scroll;
+  height: 100%;
 }
 
-.questions__days {
+.diary__question {
+  font-size: 1.4rem;
+}
+
+.diary__answer--edit {
+  width: 100%;
+}
+.diary__title {
   display: flex;
   justify-content: space-around;
   font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.details2 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .footer {
@@ -168,18 +202,17 @@ body {
   font-size: 1.2rem;
   font-family: cursive;
   position: absolute;
-  right: 3rem;
+  right: 0.6rem;
   bottom: 0.2rem;
 }
 
-@media (max-height: 31.25em) {
+@media (max-height: 43em) {
   html {
     font-size: 55%;
   }
 
   .app {
-    margin: 0.7rem;
-    height: calc(100vh - 2 * 0.7rem);
+    padding: 0.7rem;
   }
 
   .header__image {
@@ -197,7 +230,7 @@ body {
   }
 
   .footer .quote {
-    padding: 0.4rem 0.4rem 2rem;
+    padding: 0.4rem 2rem 2rem;
     font-size: 2.5rem;
   }
 }
