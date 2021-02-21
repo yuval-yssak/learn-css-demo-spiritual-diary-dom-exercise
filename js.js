@@ -3,13 +3,19 @@ import quotes from "./sivananda-quotes.js";
 const quote = quotes[Math.floor(Math.random() * quotes.length)];
 document.querySelector(".footer section.quote").textContent = quote;
 
-document.getElementById("add_question")?.addEventListener("click", function () {
+document.getElementById("add-question")?.addEventListener("click", function () {
   const question = prompt("Please type in your new question");
+  const escapedQuestion = escapeHtml(question);
+
+  addQuestion(escapedQuestion);
+});
+
+function addQuestion(question) {
   const $diary = document.querySelector(".diary");
 
   const $question = document.createElement("div");
   $question.classList.add("dirary__question");
-  $question.innerHTML = escapeHtml(question);
+  $question.innerHTML = question;
 
   $diary.insertAdjacentElement("beforeend", $question);
   new Array(7).fill(null).forEach(function (_, i) {
@@ -23,7 +29,7 @@ document.getElementById("add_question")?.addEventListener("click", function () {
 
   // make all answers on that day editable on click.
   document.querySelectorAll(`.diary__answer`).forEach(addClickLogic);
-});
+}
 
 function addClickLogic(newElement) {
   newElement.addEventListener("click", function (event) {
@@ -59,3 +65,39 @@ function addClickLogic(newElement) {
     });
   });
 }
+
+document
+  .getElementById("add-standard-questions")
+  .addEventListener("click", function () {
+    const questions = [
+      "When did you go to bed last night?",
+      "When did you get up from bed?",
+      "How many hours did you sleep?",
+      "How many Malas of Japa?",
+      "How long in Kirtan?",
+      "How many Pranayamas?",
+      "How long did you perform Asanas?",
+      "How long did you meditate in one Asana?",
+      "How many Gita Slokas did you read or get by heart?",
+      "How long in the company of the wise (Satsanga)?",
+      "How many hours did you observe Mouna?",
+      "How long in disinterested selfless service?",
+      "How much did you give in charity?",
+      "How many Mantras you wrote?",
+      "How long did you practice physical exercise?",
+      "How many lies did you tell and with what self-punishment?",
+      "How many times and how long of anger and with what self-punishment?",
+      "How many hours you spent in useless company?",
+      "How many times you failed in Brahmacharya?",
+      "How long in study of religious books?",
+      "How many times you failed in the control of evil habits and with what self-punishment?",
+      "How long you concentrated on your Ishta Devata (Saguna or Nirguna Dhyana)?",
+      "How many days did you observe fast and vigil?",
+      "Were you regular in your meditation?",
+      "What virtue are you developing?",
+      "What evil quality are you trying to eradicate?",
+      "What Indriya is troubling you most?",
+    ];
+
+    questions.forEach(addQuestion);
+  });
