@@ -139,6 +139,8 @@ body {
   flex: 1;
   overflow: hidden;
   margin: 2rem 0;
+  display: grid;
+  grid-template-rows: 1fr min-content;
 }
 
 .diary {
@@ -174,9 +176,18 @@ body {
   grid-template-columns: repeat(8, 1fr);
 }
 
-.details2 {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+.main__control {
+  display: flex;
+  align-items: center;
+}
+
+.main__control .btn {
+  width: 3rem;
+  height: 3rem;
+}
+
+.main__control .btn.save.hidden {
+  display: none;
 }
 
 .footer {
