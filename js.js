@@ -5,16 +5,18 @@ document.querySelector(".footer section.quote").textContent = quote;
 
 document.getElementById("add-question")?.addEventListener("click", function () {
   const question = prompt("Please type in your new question");
-  const escapedQuestion = escapeHtml(question);
 
-  addQuestion(escapedQuestion);
+  if (question) {
+    const escapedQuestion = escapeHtml(question);
+    addQuestion(escapedQuestion);
+  }
 });
 
 function addQuestion(question) {
   const $diary = document.querySelector(".diary");
 
   const $question = document.createElement("div");
-  $question.classList.add("dirary__question");
+  $question.classList.add("diary__question");
   $question.innerHTML = question;
 
   $diary.insertAdjacentElement("beforeend", $question);

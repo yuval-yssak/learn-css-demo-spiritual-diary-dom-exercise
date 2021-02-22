@@ -161,6 +161,17 @@ body {
   font-size: 1.4rem;
 }
 
+.diary__question:hover,
+.diary__question:hover + div,
+.diary__question:hover + div + div,
+.diary__question:hover + div + div + div,
+.diary__question:hover + div + div + div + div,
+.diary__question:hover + div + div + div + div + div,
+.diary__question:hover + div + div + div + div + div + div,
+.diary__question:hover + div + div + div + div + div + div + div {
+  font-weight: 700;
+}
+
 .diary__answer--edit {
   width: 100%;
 }
