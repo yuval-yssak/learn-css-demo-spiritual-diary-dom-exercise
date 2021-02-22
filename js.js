@@ -70,7 +70,7 @@ function addClickLogic(newElement) {
 
 document
   .getElementById("add-standard-questions")
-  .addEventListener("click", function () {
+  .addEventListener("click", function (event) {
     const questions = [
       "When did you go to bed last night?",
       "When did you get up from bed?",
@@ -102,4 +102,18 @@ document
     ];
 
     questions.forEach(addQuestion);
+    event.target.classList.add("hidden");
   });
+
+window.addEventListener("offline", function () {
+  document
+    .querySelector(".main")
+    .insertAdjacentHTML(
+      "afterBegin",
+      `<div id="offline-alert">You are currently offline</div>`
+    );
+});
+
+window.addEventListener("online", function () {
+  document.querySelector("#offline-alert").remove();
+});

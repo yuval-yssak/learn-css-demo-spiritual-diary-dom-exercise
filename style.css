@@ -141,6 +141,20 @@ body {
   margin: 2rem 0;
   display: grid;
   grid-template-rows: 1fr min-content;
+  /* for the offline alert */
+  position: relative;
+}
+
+#offline-alert {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #aaa;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
 }
 
 .diary {
@@ -172,6 +186,16 @@ body {
   font-weight: 700;
 }
 
+.diary__answer {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.diary__answer:hover {
+  transform: translateY(-2px);
+  /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); */
+}
+
 .diary__answer--edit {
   width: 100%;
 }
@@ -196,7 +220,7 @@ body {
   height: 3rem;
 }
 
-.main__control .btn.save.hidden {
+.main__control .btn.hidden {
   display: none;
 }
 
