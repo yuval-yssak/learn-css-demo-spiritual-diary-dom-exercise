@@ -54,7 +54,7 @@ function addClickLogic(newElement) {
       document
         .querySelectorAll(`.diary__answer--edit[data-day="${dayOfClickedDiv}"]`)
         .forEach(function (inputOnDay) {
-          inputOnDay.outerHTML = `<div class="diary__answer" data-day=${dayOfClickedDiv}>${inputOnDay.value}</div>`;
+          inputOnDay.outerHTML = `<div class="diary__answer" data-day=${dayOfClickedDiv}>${escapeHtml(inputOnDay.value)}</div>`;
         });
 
       // for each div on that day, make that editable on click
