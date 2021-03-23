@@ -35,7 +35,6 @@ body {
     #e54c00 100%
   );
   border-radius: 0.9rem;
-  overflow: hidden;
 }
 
 .header__title {
@@ -47,13 +46,36 @@ body {
   color: lemonchiffon;
 }
 
-@media (max-width: 35em) {
+.header__title span {
+  position: relative;
+}
+
+.header__title img {
+  width: 7rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translate(10%, -50%);
+  animation: plane-flying 1s;
+}
+
+@keyframes plane-flying {
+  0% {
+    transform: translate(-200%, 10%);
+  }
+  100% {
+    transform: translate(10%, -50%);
+  }
+}
+
+@media (max-width: 43.125em) {
   .header__title {
     font-size: 3rem;
   }
 }
 
-@media (max-width: 27.25em) {
+@media (max-width: 35em) {
   .header {
     display: grid;
     grid-template-columns: repeat(2, max-content);
@@ -65,6 +87,12 @@ body {
   }
   .header__image.swami-sivananda {
     justify-self: right;
+  }
+}
+
+@media (max-width: 23.875em) {
+  .header__title img {
+    display: none;
   }
 }
 
